@@ -36,4 +36,12 @@ public class FuncionarioTest {
         double rObs = f.getIRPF();
         assertEquals(rEsp, rObs, 0.0001);
     }
+
+    @Test
+    public void testIRigual(){
+        f.setSalarioBruto(2500.0);
+        double rEsp = 2500.0 * 0.12;
+        double rObs = f.getIRPF();
+        assertEquals(rEsp, rObs, 0.0001);
+    }
 }
