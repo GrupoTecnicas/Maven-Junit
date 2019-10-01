@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 public class FuncionarioTest {
 
@@ -14,9 +16,16 @@ public class FuncionarioTest {
         f = new Funcionario();
     }
 
-    @DisplayName("Testa valores de INSS")
+    @DisplayName("Testa valores de IRPF")
+    @ParameterizedTest
+    @CsvSource({"1000.0,0.0", "2500.0,0.0", "3000.0,60.0"})
+    public void testIRPF(double val, double rEsp){
+        f.setSalarioBruto(val);
+        double rObs = f.getIRPF();
+        assertEquals(rEsp,rObs,0.001);
+    }
 
-
+    /*
     @Test
     public void testINSSmenorLimite(){
         f.setSalarioBruto(3000.0);
@@ -48,4 +57,5 @@ public class FuncionarioTest {
         double rObs = f.getIRPF();
         assertEquals(rEsp, rObs, 0.0001);
     }
+    */
 }
