@@ -3,6 +3,7 @@ package com.exercicioteste;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.DisplayName;
 
 public class FuncionarioTest {
 
@@ -12,6 +13,9 @@ public class FuncionarioTest {
     public void setup(){
         f = new Funcionario();
     }
+
+    @DisplayName("Testa valores de INSS")
+
 
     @Test
     public void testINSSmenorLimite(){
